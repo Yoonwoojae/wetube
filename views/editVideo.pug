@@ -2,10 +2,8 @@ extends layouts/main
 
 block content
     .form-container
-        form(action=routes.editProfile, method="post")
-            label(for="avatar") Avatar
-            input(type="file", id="avatar", name="avatar")
-            input(type="text", placeholder="Name", name="name")
-            input(type="email", placeholder="Email", name="email")
-            input(type="submit", value="Update Profile")
-        a.form-container__link(href=routes.changePassword) Change Password
+        form(action=routes.editVideo(video.id), method="post")
+            input(type="text", placeholder="title", name="title" value=video.title)
+            textarea(placeholder="Description", name="description")=video.description
+            input(type="submit", value="Update Video")
+        a.form-container__link.form-container__link--delete(href=`/videos${routes.deleteVideo}`) Delete Video
