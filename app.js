@@ -1,9 +1,10 @@
+/* eslint-disable import/no-named-as-default */
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import { localsMiddleware } from "./middlewares";
-import cookieParser from "body-parser";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
@@ -12,7 +13,7 @@ import routes from "./routes";
 const app = express();
 
 app.use(helmet());
-app.set('view engine', "pug");
+app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));
 app.use(cookieParser());
 app.use(bodyParser.json());
