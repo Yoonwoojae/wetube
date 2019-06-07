@@ -4,7 +4,7 @@
   "description": "Cloneing Youtube with Vanilla and NodeJS",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss'",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss' --ignore 'static'",
     "dev:assets": "webpack --env.WEBPACK_ENV=development -w",
     "build:assets": "webpack --env.WEBPACK_ENV=production",
     "tunnel": "lt --port 4000"
