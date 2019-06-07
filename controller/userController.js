@@ -16,13 +16,11 @@ export const postJoin = async (req, res, next) => {
     res.render("Join", { pageTitle: "Join" });
   } else {
     try {
-      const user = await User.create({
+      const user = await User({
         name,
         email
       });
-      console.log(1);
       await User.register(user, password);
-      console.log(2);
       next();
     } catch (error) {
       console.log(error);
@@ -40,8 +38,43 @@ export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home
 });
 
+export const githubLogin = passport.authenticate("github");
+
+export const githubLoginCallback = async (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  const {
+    // eslint-disable-next-line camelcase
+    _json: { id, avatar_url, name, email }
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      githubId: id,
+      avatarUrl: avatar_url
+    });
+    return cb(null, newUser);
+  } catch (error) {
+    return cb(error);
+  }
+};
+
+export const postGithubLogin = (seq, res) => {
+  res.redirect(routes.home);
+};
+
 export const logout = (req, res) => {
-  // To Do: Process log out
+  req.logout();
   res.redirect(routes.home);
 };
 
