@@ -537,6 +537,31 @@ input[type="submit"] {
   .home-videos .videoBlock:nth-child(5) {
     grid-column: span 2; }
 
+.content {
+  height: 230px;
+  border-bottom: 1px solid #D5D5D5; }
+  .content #videoArea {
+    margin: 20px 20px; }
+    .content #videoArea .videoImg {
+      width: 210px;
+      height: 205px;
+      float: left;
+      position: relative;
+      margin-right: 10px; }
+      .content #videoArea .videoImg .videoBlock__thumbnail {
+        max-width: 100%;
+        height: 118px;
+        margin-bottom: 10px; }
+      .content #videoArea .videoImg .videoBlock__title, .content #videoArea .videoImg .videoBlock__views {
+        width: 100%;
+        margin-bottom: 5px; }
+  .content p.title {
+    margin: 20px 20px;
+    font-size: 1.3em; }
+
+.content:last-child {
+  border-bottom: none; }
+
 .video-detail__container {
   display: -webkit-box;
   display: -webkit-flex;
