@@ -18,14 +18,12 @@ youtube clone
 # User Authentication
 1. passport JS
 
-# Pages
-- [x] Home
-- [x] Join
-- [x] Login
-- [x] Search
-- [x] User Detail
-- [x] Edit Profile
-- [x] Change Password
-- [x] Upload
-- [x] Video Detail
-- [x] Edit Video
+# Implementation technology
+1. 회원가입
+2. 로그인(이메일,깃허브)
+3. 영상녹화
+4. 영상업로드
+5. 영상재생
+6. 댓글달기
+7. 검색
+8. 개인회원별 페이지
